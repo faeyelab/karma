@@ -2,6 +2,8 @@
 
 KARMA (Kolmogorov-Arnold Representation Mapping Architecture) is a highly efficient semantic segmentation framework designed specifically for structural defect detection in civil infrastructure. It models complex defect patterns through compositions of one-dimensional functions rather than conventional convolutions, resulting in significantly reduced parameters while maintaining or improving accuracy.
 
+Official implementation of the ICCV 2025 paper "KARMA: Efficient Structural Defect Segmentation via Kolmogorov-Arnold Representation Learning".
+
 ## Key Innovations
 
 - **Parameter-efficient TiKAN module**: Leverages low-rank factorization for KAN-based feature transformation, dramatically reducing parameter count
@@ -26,8 +28,8 @@ KARMA integrates Kolmogorov-Arnold modules into an adaptive feature pyramid netw
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/karma-segmentation.git
-cd karma-segmentation
+git clone https://github.com/faeyelab/karma.git
+cd karma
 
 # Create conda environment (optional)
 conda create -n karma python=3.8
@@ -91,7 +93,7 @@ Comprises approximately 6,300 frames from 580 annotated underground inspection v
 ## Project Structure
 
 ```
-karma-segmentation/
+karma/
 ├── README.md
 ├── requirements.txt
 ├── LICENSE
