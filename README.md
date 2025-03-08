@@ -2,7 +2,7 @@
 
 KARMA (Kolmogorov-Arnold Representation Mapping Architecture) is a highly efficient semantic segmentation framework designed specifically for structural defect detection in civil infrastructure. It models complex defect patterns through compositions of one-dimensional functions rather than conventional convolutions, resulting in significantly reduced parameters while maintaining or improving accuracy.
 
-Official implementation of the ICCV 2025 paper "KARMA: Efficient Structural Defect Segmentation via Kolmogorov-Arnold Representation Learning".
+Official implementation of the paper "KARMA: Efficient Structural Defect Segmentation via Kolmogorov-Arnold Representation Learning" submitted to ICCV 2025.
 
 ## Key Innovations
 
@@ -79,6 +79,19 @@ Contains 743 high-resolution images of concrete surfaces with pixel-wise annotat
 - Class 5: Vegetation (plant growth)
 - Class 6: Control Point (fiducial markers)
 
+#### S2DS Download
+The S2DS dataset can be downloaded from:
+- [Google Drive Link](https://drive.google.com/file/d/1PQ50QKfy2vnDOHSmw5bpBFi33hZsSXuM/view?usp=sharing)
+
+After downloading, extract the dataset and organize it with the following structure:
+```
+data/
+├── s2ds/
+    ├── train/
+    ├── val/
+    ├── test/
+```
+
 ### Culvert-Sewer Defects Dataset (CSDD)
 Comprises approximately 6,300 frames from 580 annotated underground inspection videos covering eight defect classes:
 - Cracks
@@ -106,7 +119,8 @@ karma/
 │   ├── __init__.py
 │   ├── karma.py
 │   ├── layers.py
-│   └── blocks.py
+│   ├── blocks.py
+│   └── tikan.py
 ├── losses/
 │   ├── __init__.py
 │   └── losses.py
@@ -121,13 +135,13 @@ karma/
 
 ## Citation
 
-If you use this code in your research, please cite:
+If you use this code in your research, please cite our paper:
 
 ```
-@inproceedings{karma2025,
+@article{karma2025,
   title={KARMA: Efficient Structural Defect Segmentation via Kolmogorov-Arnold Representation Learning},
   author={[Anonymous]},
-  booktitle={IEEE/CVF International Conference on Computer Vision (ICCV)},
+  journal={Submitted to ICCV},
   year={2025}
 }
 ```
