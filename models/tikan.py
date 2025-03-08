@@ -1,3 +1,10 @@
+"""
+TiKAN: Tiny Kolmogorov-Arnold Network module.
+
+This module implements KANLinear, a parameter-efficient version of KAN through 
+low-rank factorization based on the Kolmogorov-Arnold representation theorem.
+"""
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -21,6 +28,7 @@ class LowRankLinear(nn.Module):
 
     def forward(self, input):
         return F.linear(input, self.v.t() @ self.u.t(), self.bias)
+
 
 class KANLinear(nn.Module):
     def __init__(self, in_features, out_features, grid_size=3, spline_order=1,
@@ -133,7 +141,8 @@ class KAN(torch.nn.Module):
         return x
 
     def regularization_loss(self, regularize_activation=1.0, regularize_entropy=1.0):
-        return sum(
-            layer.regularization_loss(regularize_activation, regularize_entropy)
-            for layer in self.layers
-        )
+        loss = 0
+        for layer in self.layers:
+            if hasattr(layer, 'regularization_loss'):
+                loss += layer.regularization_loss(regularize_activation, regularize_entropy)
+        return loss
